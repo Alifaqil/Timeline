@@ -11,7 +11,7 @@ export default function Timelist() {
       <h1>Timeline</h1>
       <ul className={styles.timeline}>
         {data.map((item, index) => (
-          <TimelineItem data={item} keys={index} />
+          <TimelineItem data={item} key={index} />
         ))}
       </ul>
     </div>

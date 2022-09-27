@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import Header from "./Header.js";
-import { TimeDispatch } from "./Timecontext.js";
+import { supabase } from "../supabase-client";
 import styles from "../styles/Time.module.css";
 
 const initial = {
@@ -13,31 +13,26 @@ const initial = {
 function Timeform() {
   const [timeline, setTimeline] = useState(initial);
 
-  const dispatch = useContext(TimeDispatch);
   const { name, date, description, status } = timeline;
 
   const handleOnSubmit = (event) => {
-    event.preventDefault();
-    const values = [name, date, description, status];
-
-    const allFieldsFilled = values.every((field) => {
-      const value = `${field}`.trim();
-      return value !== "" && value !== "0";
-    });
-
-    if (allFieldsFilled) {
-      const lists = {
-        name,
-        date,
-        description,
-        status,
-      };
-      dispatch({ type: "add", data: lists });
+    async function insertData(data) {
+      await supabase.from("timeline").insert({
+        name: data.name,
+        date: data.date,
+        description: data.description,
+        status: data.status,
+      });
+      alert("Timeline Added");
       setTimeline(initial);
-      alert("Timeline added");
-    } else {
-      alert("Please fill out all the fields.");
     }
+    const lists = {
+      name,
+      date,
+      description,
+      status,
+    };
+    insertData(lists);
   };
 
   const handleInputChange = (event) => {
@@ -60,6 +55,7 @@ function Timeform() {
           name="date"
           value={timeline.date}
           onChange={handleInputChange}
+          required
         ></input>
         <input
           type="text"
@@ -67,6 +63,7 @@ function Timeform() {
           value={timeline.name}
           placeholder="Enter name of the activity"
           onChange={handleInputChange}
+          required
         ></input>
         <input
           type="text"
@@ -74,6 +71,7 @@ function Timeform() {
           value={timeline.description}
           placeholder="Enter description of the activity"
           onChange={handleInputChange}
+          required
         ></input>
         <select
           name="status"
