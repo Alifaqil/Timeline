@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { TimeContext } from "./Timecontext.js";
-import TimelineItem from "./Timeitem.js";
+import TimelineItem from "./api/Timeitem.js";
 
 import styles from "../styles/Time.module.css";
 export default function Timelist() {
