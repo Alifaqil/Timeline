@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Time.module.css";
 const TimelineItem = ({ data, key }) => {
-  const date = new Date(data.date).toDateString();
+  // const date = new Date(data.date).toDateString();
   function setColor(status) {
     if (status === "Done") {
       return "green";
