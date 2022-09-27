@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Time.module.css";
 const TimelineItem = ({ data, key }) => {
-  let date = new Date(data.date).toDateString();
+  const date = new Date(data.date).toDateString();
   function setColor(status) {
     if (status === "Done") {
       return "green";
@@ -13,7 +13,7 @@ const TimelineItem = ({ data, key }) => {
       return "grey";
     }
   }
-  let color = setColor(data.status);
+  const color = setColor(data.status);
   return (
     <li key={key}>
       <div className={styles.direction}>
