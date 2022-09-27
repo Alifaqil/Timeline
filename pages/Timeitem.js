@@ -21,7 +21,7 @@ const TimelineItem = ({ data, key }) => {
           <span className={styles.hexa}></span>
           <span className={styles.flag}>{data.name}</span>
           <span className={styles.timewrapper}>
-            <span className={styles.time}>{date}</span>
+            <span className={styles.time}>{data.date}</span>
           </span>
         </div>
         <div className={styles.desc}>{data.description}</div>
