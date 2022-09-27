@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../styles/Time.module.css";
 const TimelineItem = ({ data, key }) => {
-  // const date = new Date(data.date).toDateString();
+  const date = new Date(data.date).toDateString();
   function setColor(status) {
     if (status === "Done") {
       return "green";
@@ -21,7 +21,7 @@ const TimelineItem = ({ data, key }) => {
           <span className={styles.hexa}></span>
           <span className={styles.flag}>{data.name}</span>
           <span className={styles.timewrapper}>
-            <span className={styles.time}>{data.date}</span>
+            <span className={styles.time}>{date}</span>
           </span>
         </div>
         <div className={styles.desc}>{data.description}</div>
