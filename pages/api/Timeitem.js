@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/Time.module.css";
+import styles from ".../styles/Time.module.css";
 const TimelineItem = ({ data, key }) => {
   const date = new Date(data.date).toDateString();
   function setColor(status) {
