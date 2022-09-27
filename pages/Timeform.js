@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Header from "./Header.js";
 import { supabase } from "../supabase-client";
 import styles from "../styles/Time.module.css";
